@@ -117,7 +117,7 @@ If you are just browsing images (for instance, to check plant characteristics) y
 This will open the first 5 images in the database. If you want random 5, use the argument `random`:
 
 ```r
-open_rb_images(scientific_name = "Miconia albicans", random = TRUE, width = 3000) # files here will be large
+> open_rb_images(scientific_name = "Miconia albicans", random = TRUE, width = 3000) # files here will be large
 ```
 
 #### 3. Downloading images
