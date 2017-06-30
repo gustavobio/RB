@@ -90,6 +90,8 @@ You can also open images in the default browser using `open_rb_images` and passi
 ```r
 > open_rb_images(myrcias_van)
 ```
+<img width="400" alt="screen shot 2017-06-30 at 17 24 22" src="https://user-images.githubusercontent.com/30267/27752751-06fd4da4-5db9-11e7-897b-1b3cc933cf4d.png">
+
 
 This will open all images in your browser in new tabs. The maximum number of images is given by the argument `max`, which defaults to 5.
 
