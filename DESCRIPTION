@@ -1,0 +1,20 @@
+Package: RB
+Type: Package
+Title: Query the RB Herbarium Catalog
+Version: 0.1.0
+Author: Gustavo Carvalho
+Maintainer: Gustavo Carvalho <gustavo.bio@gmail.com>
+Description: This package contains tools to interact with the RB Herbarium catalog.
+    The dataset is derived from a DWC archive that is stored locally. Images from a given 
+    set of specimens can also be opened in a browser or downloaded and stored locally in several
+    resolutions.
+License: GPL (>=2)
+Imports: 
+    finch,
+    rvest,
+    xml2
+Encoding: UTF-8
+URL: http://www.github.com/gustavobio/RB
+BugReports: http://www.github.com/gustavobio/RB/issues
+LazyData: true
+RoxygenNote: 6.0.1
