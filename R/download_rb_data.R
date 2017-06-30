@@ -11,7 +11,6 @@ rb_latest_data <- function() {
   read_html(base_url) %>%
     html_nodes("tr:nth-child(1) a") %>%
     html_attr("href")
-  "http://ipt.jbrj.gov.br/jbrj/archive.do?filename=dwca-jbrj_rb-v84.108.zip"
 }
 
 download_rb_data <- function() {
