@@ -6,7 +6,10 @@ RB is not on CRAN, so please install it from github:
 
 ```r
 # Install devtools
-# install.packages("devtools")
+install.packages("devtools")
+
+# Install finch
+devtools::install_github("gustavobio/finch")
 
 # Install RB:
 devtools::install_github("gustavobio/RB")
