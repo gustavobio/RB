@@ -7,9 +7,10 @@
 #' @param scientific_name A character vector with one or more scientific names.
 #' @param family A character vector with one or more families.
 #' @param genus A character vector with one or more genera.
+#' @param collector A character vector to be matched against collectors in the database.
 #' @param county A character vector with one or more counties.
-#' @param barcode A character vector with one or more catalog numbers.
 #' @param state A character vector with one or more Brazilian states (full names only).
+#' @param barcode A character vector with one or more catalog numbers.
 #' @param with_images A logical indicating whether to return only specimens with images.
 #' @param with_coordinates A logical indicating whether to return only specimens with geographical
 #' coordinates.
@@ -26,14 +27,15 @@ search_rb <- function(
   scientific_name = NULL,
   family = NULL,
   genus = NULL,
+  collector = NULL,
   county = NULL,
-  barcode = NULL,
   state = NULL,
+  barcode = NULL,
   with_images = FALSE,
   with_coordinates = FALSE,
   year = NULL) {
 
-  if (is.null(c(scientific_name, family, genus, county, barcode, state, year))) {
+  if (is.null(c(scientific_name, family, genus, collector, county, barcode, state, year))) {
     stop("Please provide at least one search field.")
   }
 
@@ -53,6 +55,9 @@ search_rb <- function(
   }
   if (!is.null(genus)) {
     specimens <- specimens[specimens$genus %in% genus, ]
+  }
+  if (!is.null(collector)) {
+    specimens <- specimens[grep(collector, specimens$recordedBy, ignore.case = TRUE), ]
   }
   if (!is.null(county)) {
     specimens <- specimens[specimens$county %in% county, ]

@@ -9,6 +9,7 @@
 #' @param scientific_name A character vector of names to be searched.
 #' @param family A character vector of families.
 #' @param barcode A character vector of barcodes.
+#' @param collector A character vector with collector names.
 #' @param max Maximum number of results to display or download.
 #' @param random Logical indicating if random images should be downloaded or open when \code{max} is
 #' lower than the number of search results. The default is to display the first \code{max} results.
@@ -20,6 +21,7 @@ get_image_urls <- function(specimens = NULL,
                            scientific_name = NULL,
                            family = NULL,
                            barcode = NULL,
+                           collector = NULL,
                            max = 5,
                            random = FALSE,
                            width = 600) {
@@ -27,7 +29,8 @@ get_image_urls <- function(specimens = NULL,
     specimens <-
       search_rb(scientific_name = scientific_name,
                 family = family,
-                barcode = barcode)
+                barcode = barcode,
+                collector = collector)
   } else {
     if (is.null(attr(specimens, "specimens"))) {
       stop("The argument `specimens` should be a data frame as returned by search_rb()")
@@ -51,10 +54,12 @@ get_image_urls <- function(specimens = NULL,
 }
 
 #' @rdname get_image_urls
+#' @export
 open_rb_images <- function(specimens = NULL,
                            scientific_name = NULL,
                            family = NULL,
                            barcode = NULL,
+                           collector = NULL,
                            max = 5,
                            random = FALSE,
                            width = 600) {
@@ -63,6 +68,7 @@ open_rb_images <- function(specimens = NULL,
     scientific_name = scientific_name,
     family = family,
     barcode = barcode,
+    collector = collector,
     max = max,
     random = random,
     width = width
@@ -76,30 +82,38 @@ open_rb_images <- function(specimens = NULL,
 }
 
 #' @rdname get_image_urls
+#' @export
 download_rb_images <- function(specimens = NULL,
                                scientific_name = NULL,
                                family = NULL,
                                barcode = NULL,
+                               collector = NULL,
                                width = 3000,
-                               random = FALSE,
-                               max = 50) {
+                               random = FALSE
+                               ) {
   image_urls <- get_image_urls(
     specimens = specimens,
     scientific_name = scientific_name,
     family = family,
     barcode = barcode,
-    max = max,
+    collector = collector,
     random = random,
+    max = 700000, # argh
     width = width
   )
   if (!is.null(image_urls)) {
+    answer <- readline(prompt = paste(length(image_urls), "images found. Continue? (y/n): "))
+    if (!tolower(answer) %in% c("y", "yes", "sim", "s")) {
+      message("Stopping...")
+      return(NULL)
+    }
     image_names <-
       regmatches(image_urls,
                  regexpr("[^/\\&\\?]+\\.\\w{3,4}(?=([\\?&].*$|$))", image_urls, perl = T))
     path <- paste("RB_images_", format(Sys.time(), "%d_%b_%H_%M_%S"), sep = "_")
     if (!dir.exists(path))
       dir.create(path)
-    cat("Downloading", length(image_urls), "images to", paste0(getwd(), "/", path, "/:\n"))
+    cat("\nDownloading", length(image_urls), "images to", paste0(getwd(), "/", path, "/:\n"))
     pb <- txtProgressBar(min = 0, max = length(image_urls), style = 3)
     for (i in seq_along(image_urls)) {
       # print(i)
@@ -123,5 +137,4 @@ download_rb_images <- function(specimens = NULL,
     message("No images found.")
     return(NULL)
   }
-
 }

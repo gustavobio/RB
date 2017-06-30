@@ -8,14 +8,16 @@
 locally.}
 \usage{
 get_image_urls(specimens = NULL, scientific_name = NULL, family = NULL,
-  barcode = NULL, max = 5, random = FALSE, width = 600)
+  barcode = NULL, collector = NULL, max = 5, random = FALSE,
+  width = 600)
 
 open_rb_images(specimens = NULL, scientific_name = NULL, family = NULL,
-  barcode = NULL, max = 5, random = FALSE, width = 600)
+  barcode = NULL, collector = NULL, max = 5, random = FALSE,
+  width = 600)
 
 download_rb_images(specimens = NULL, scientific_name = NULL,
-  family = NULL, barcode = NULL, width = 3000, random = FALSE,
-  max = 50)
+  family = NULL, barcode = NULL, collector = NULL, width = 3000,
+  random = FALSE)
 }
 \arguments{
 \item{specimens}{A data frame returned by \code{\link{search_rb}}.}
@@ -25,6 +27,8 @@ download_rb_images(specimens = NULL, scientific_name = NULL,
 \item{family}{A character vector of families.}
 
 \item{barcode}{A character vector of barcodes.}
+
+\item{collector}{A character vector with collector names.}
 
 \item{max}{Maximum number of results to display or download.}
 

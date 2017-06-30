@@ -5,8 +5,8 @@
 \title{Search specimens in the RB collection.}
 \usage{
 search_rb(scientific_name = NULL, family = NULL, genus = NULL,
-  county = NULL, barcode = NULL, state = NULL, with_images = FALSE,
-  with_coordinates = FALSE, year = NULL)
+  collector = NULL, county = NULL, state = NULL, barcode = NULL,
+  with_images = FALSE, with_coordinates = FALSE, year = NULL)
 }
 \arguments{
 \item{scientific_name}{A character vector with one or more scientific names.}
@@ -15,11 +15,13 @@ search_rb(scientific_name = NULL, family = NULL, genus = NULL,
 
 \item{genus}{A character vector with one or more genera.}
 
+\item{collector}{A character vector to be matched against collectors in the database.}
+
 \item{county}{A character vector with one or more counties.}
 
-\item{barcode}{A character vector with one or more catalog numbers.}
-
 \item{state}{A character vector with one or more Brazilian states (full names only).}
+
+\item{barcode}{A character vector with one or more catalog numbers.}
 
 \item{with_images}{A logical indicating whether to return only specimens with images.}
 
