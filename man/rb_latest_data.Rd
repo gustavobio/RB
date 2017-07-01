@@ -2,9 +2,12 @@
 % Please edit documentation in R/download_rb_data.R
 \name{rb_latest_data}
 \alias{rb_latest_data}
+\alias{download_rb_data}
 \title{Download the Darwin Core Archive file from http://ipt.jbrj.gov.br/jbrj/}
 \usage{
 rb_latest_data()
+
+download_rb_data()
 }
 \description{
 These functions are used mainly internally to manage the DWC-A files from

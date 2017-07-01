@@ -10,5 +10,4 @@
 #' @importFrom xml2 read_html
 #' @name RB
 #' @aliases RB RB-package
-
-rb_env <- new.env(parent = emptyenv())
+NULL

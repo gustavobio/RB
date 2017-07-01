@@ -14,6 +14,7 @@ rb_latest_data <- function() {
 }
 
 #' @export
+#' @rdname rb_latest_data
 download_rb_data <- function() {
   if (!exists("data", envir = rb_env, inherits = FALSE)) {
     assign("data", dwca_read(rb_latest_data(), read = T), envir = rb_env)

@@ -3,14 +3,9 @@
 \docType{package}
 \name{RB}
 \alias{RB}
-\alias{rb_env}
 \alias{RB-package}
 \alias{RB-package}
 \title{Package RB}
-\format{An object of class \code{environment} of length 0.}
-\usage{
-rb_env
-}
 \description{
 Query the RB herbarium dataset and download specimens images
 }
@@ -18,4 +13,3 @@ Query the RB herbarium dataset and download specimens images
 This packages contain a set of tools for querying and downloading images
 from the RB herbarium dataset.
 }
-\keyword{datasets}
