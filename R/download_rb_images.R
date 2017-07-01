@@ -125,7 +125,7 @@ download_rb_images <- function(specimens = NULL,
           # print(temp)
           setTxtProgressBar(pb, i)
           download.file(image_urls[i],
-                        destfile = paste0(paste0(path, "/"), image_names[i], ".jpg"),
+                        destfile = paste0(paste0(path, "/"), image_names[i]),
                         mode = "wb", quiet = TRUE)
         })
         if (!inherits(success, "try-error")) break
