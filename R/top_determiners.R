@@ -79,8 +79,5 @@ standardise_commas <- function(x) {
 }
 
 fix_initials <- function(x) {
-  regex <- "[A-Z]+"
-  x1 <- regexec(regex, x)
-  x1 <- regmatches(x, x1)
-  x1
+  remove_double_ws(gsub("(?<=[A-Z])(?=[A-Z]|\\s|$)", ". ", x, perl = TRUE))
 }
