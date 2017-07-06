@@ -33,14 +33,15 @@ search_rb <- function(
   barcode = NULL,
   with_images = FALSE,
   with_coordinates = FALSE,
-  year = NULL) {
+  year = NULL,
+  ...) {
 
   if (is.null(c(scientific_name, family, genus, collector, county, barcode, state, year))) {
     stop("Please provide at least one search field.")
   }
 
   if (!exists("data", envir = rb_env, inherits = FALSE)) {
-    download_rb_data()
+    download_rb_data(...)
   }
 
   specimens <- rb_env$data$data$occurrence.txt
