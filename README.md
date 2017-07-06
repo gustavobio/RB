@@ -9,7 +9,7 @@ RB is not on CRAN, so please install it from github:
 install.packages("devtools")
 
 # Install finch (YOU MUST INSTALL THE VERSION FROM GITHUB IF USING R ON WINDOWS!)
-devtools::install_github("ropensci/finch")
+devtools::install_github("gustavobio/finch")
 
 # Install RB:
 devtools::install_github("gustavobio/RB")
