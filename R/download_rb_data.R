@@ -4,6 +4,7 @@
 #' the RB IPT repository. All files are downloaded to a local cache and will be
 #' reused as long as the cache isn't purged.
 #'
+#' @param ... further arguments passed on to \code{fread}
 #' @export
 
 rb_latest_data <- function() {
@@ -15,7 +16,7 @@ rb_latest_data <- function() {
 
 #' @export
 #' @rdname rb_latest_data
-download_rb_data <- function() {
+download_rb_data <- function(...) {
   if (!exists("data", envir = rb_env, inherits = FALSE)) {
     assign("data", dwca_read(rb_latest_data(), read = T), envir = rb_env)
   } else {
