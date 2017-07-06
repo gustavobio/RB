@@ -32,13 +32,14 @@ is also high and will likely impact performance in computers with lower specs:
 
 ```r
 > library(RB)
-> miconias <- search_rb("Miconia albicans")
-trying URL 'http://ipt.jbrj.gov.br/jbrj/archive.do?r=jbrj_rb&v=84.108'
-downloaded 102.9 MB
+> download_rb_data(encoding = "UTF-8")
+trying URL 'http://ipt.jbrj.gov.br/jbrj/archive.do?r=jbrj_rb&v=84.109'
+downloaded 103.9 MB
 
 Read 691354 rows and 45 (of 45) columns from 0.352 GB file in 00:00:13
-Read 625625 rows and 7 (of 7) columns from 0.153 GB file in 00:00:08
-153 GB file in 00:00:08
+Read 625625 rows and 7 (of 7) columns from 0.153 GB file in 00:00:07
+153 GB file in 00:00:07
+> miconias <- search_rb("Miconia albicans")
 ```
 
 This call to `search_rb` returns a data frame with 477 rows and 45 columns, including scientific name, family,
@@ -83,8 +84,6 @@ The first argument in `search_rb` is a scientific name. Please see the helpfile 
 > dim(myrcias_van)
 [1]  3 45
 ```
-
-There are several combinations possible. Please consult the help files for all arguments.
 
 #### 2. Navigating images
 
