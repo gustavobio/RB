@@ -7,7 +7,10 @@
 \usage{
 rb_latest_data()
 
-download_rb_data()
+download_rb_data(...)
+}
+\arguments{
+\item{...}{further arguments passed on to \code{finch::dwca_read}}
 }
 \description{
 These functions are used mainly internally to manage the DWC-A files from

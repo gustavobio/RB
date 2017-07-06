@@ -4,7 +4,7 @@
 #' the RB IPT repository. All files are downloaded to a local cache and will be
 #' reused as long as the cache isn't purged.
 #'
-#' @param ... further arguments passed on to \code{fread}
+#' @param ... further arguments passed on to \code{finch::dwca_read}
 #' @export
 
 rb_latest_data <- function() {

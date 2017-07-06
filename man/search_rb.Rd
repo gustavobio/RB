@@ -6,7 +6,7 @@
 \usage{
 search_rb(scientific_name = NULL, family = NULL, genus = NULL,
   collector = NULL, county = NULL, state = NULL, barcode = NULL,
-  with_images = FALSE, with_coordinates = FALSE, year = NULL)
+  with_images = FALSE, with_coordinates = FALSE, year = NULL, ...)
 }
 \arguments{
 \item{scientific_name}{A character vector with one or more scientific names.}
@@ -29,6 +29,8 @@ search_rb(scientific_name = NULL, family = NULL, genus = NULL,
 coordinates.}
 
 \item{year}{A numerical or character vector indicating years to refine the search.}
+
+\item{...}{Further arguments to be passed on to \code{download_rb_data}}
 }
 \description{
 This function filters a local copy of the RB collection according to

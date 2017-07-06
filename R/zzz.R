@@ -1,11 +1,5 @@
 rb_env <- new.env(parent = emptyenv())
 
-#' Get the top determiners for a given taxon
-#'
-#' @param taxon A character string
-#'
-#' @example
-#'
 top_determiners <-
   function(scientific_name = NULL,
            genus = NULL,

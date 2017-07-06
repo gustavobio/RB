@@ -15,6 +15,7 @@
 #' @param with_coordinates A logical indicating whether to return only specimens with geographical
 #' coordinates.
 #' @param year A numerical or character vector indicating years to refine the search.
+#' @param ... Further arguments to be passed on to \code{download_rb_data}
 #' @export
 #' @examples
 #' \dontrun{
